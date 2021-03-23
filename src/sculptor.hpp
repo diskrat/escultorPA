@@ -1,6 +1,6 @@
 #ifndef SCULPTOR_HPP
 #define SCULPTOR_HPP
-#include "voxel.h"
+#include "voxel.hpp"
 
 class Sculptor {
 protected:
