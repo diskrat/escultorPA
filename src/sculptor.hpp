@@ -1,5 +1,5 @@
-#ifndef SCULPTOR_H
-#define SCULPTOR_H
+#ifndef SCULPTOR_HPP
+#define SCULPTOR_HPP
 #include "voxel.h"
 
 class Sculptor {
@@ -23,4 +23,4 @@ public:
   void writeOFF(char* filename);
 };
 
-#endif // SCULPTOR_H
+#endif // SCULPTOR_HPP

@@ -1,5 +1,5 @@
-#ifndef VOXEL_H
-#define VOXEL_H
+#ifndef VOXEL_HPP
+#define VOXEL_HPP
 
 struct Voxel {
   float r,g,b; // Colors
@@ -8,4 +8,4 @@ struct Voxel {
   bool isOn; // Included or not
 };
 
-#endif // VOXEL_H
+#endif // VOXEL_HPP
