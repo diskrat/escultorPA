@@ -3,6 +3,7 @@
 #include "sculptor.hpp"
 #include <vector>
 #include <fstream>
+#include <cmath>
 Sculptor::Sculptor(int _nx, int _ny, int _nz)
 {
     this->nx = _nx;
@@ -69,6 +70,13 @@ void Sculptor::cutVoxel(int x, int y, int z)
 
 void Sculptor::putBox(int x0, int x1, int y0, int y1, int z0, int z1)
 {
+    x0 = (x0 < 0) ? 0 :x0;
+    x1 = (x1 > this->nx) ? this->nx : x1;
+    y0 = (y0 < 0) ? 0 :y0;
+    y1 = (y1 > this->ny) ? this->ny : y1;
+    z0 = (z0 < 0) ? 0 :z0;
+    z1 = (z1 > this->nz) ? this->nz : z1;
+
     for (int i = x0; i < x1; i++)
     {
         for (int j = y0; j < y1; j++)
@@ -83,6 +91,13 @@ void Sculptor::putBox(int x0, int x1, int y0, int y1, int z0, int z1)
 
 void Sculptor::cutBox(int x0, int x1, int y0, int y1, int z0, int z1)
 {
+    x0 = (x0 < 0) ? 0 :x0;
+    x1 = (x1 > this->nx) ? this->nx : x1;
+    y0 = (y0 < 0) ? 0 :y0;
+    y1 = (y1 > this->ny) ? this->ny : y1;
+    z0 = (z0 < 0) ? 0 :z0;
+    z1 = (z1 > this->nz) ? this->nz : z1;
+
     for (int i = x0; i < x1; i++)
     {
         for (int j = y0; j < y1; j++)
@@ -97,18 +112,66 @@ void Sculptor::cutBox(int x0, int x1, int y0, int y1, int z0, int z1)
 
 void Sculptor::putSphere(int xcenter, int ycenter, int zcenter, int radius)
 {
+    putEllipsoid(xcenter, ycenter, zcenter, radius, radius, radius);
 }
 
 void Sculptor::cutSphere(int xcenter, int ycenter, int zcenter, int radius)
 {
+    cutEllipsoid(xcenter, ycenter, zcenter, radius, radius, radius);
 }
 
 void Sculptor::putEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz)
 {
+    int x0, x1, y0, y1, z0, z1;
+
+    x0 = (xcenter - rx < 0) ? 0 : xcenter - rx;
+    x1 = (xcenter + rx > this->nx) ? this->nx : xcenter + rx;
+    y0 = (ycenter - ry < 0) ? 0 : ycenter - ry;
+    y1 = (ycenter + ry > this->ny) ? this->ny : ycenter + ry;
+    z0 = (zcenter - rz < 0) ? 0 : zcenter - rz;
+    z1 = (zcenter + rz > this->nz) ? this->nz : zcenter + rz;
+
+
+    for (int i = x0; i < x1; i++)
+    {
+        for (int j = y0; j < y1; j++)
+        {
+            for (int k = z0; k < z1; k++)
+            {
+                if ((pow(i - xcenter, 2) / pow(rx, 2) + pow(j - ycenter, 2) / pow(ry, 2) + pow(k - zcenter, 2) / pow(rz, 2)) < 1)
+                {
+                    this->putVoxel(i, j, k);
+                }
+            }
+        }
+    }
 }
 
 void Sculptor::cutEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz)
 {
+    int x0, x1, y0, y1, z0, z1;
+
+    x0 = (xcenter - rx < 0) ? 0 : xcenter - rx;
+    x1 = (xcenter + rx > this->nx) ? this->nx : xcenter + rx;
+    y0 = (ycenter - ry < 0) ? 0 : ycenter - ry;
+    y1 = (ycenter + ry > this->ny) ? this->ny : ycenter + ry;
+    z0 = (zcenter - rz < 0) ? 0 : zcenter - rz;
+    z1 = (zcenter + rz > this->nz) ? this->nz : zcenter + rz;
+
+
+    for (int i = x0; i < x1; i++)
+    {
+        for (int j = y0; j < y1; j++)
+        {
+            for (int k = z0; k < z1; k++)
+            {
+                if ((pow(i - xcenter, 2) / pow(rx, 2) + pow(j - ycenter, 2) / pow(ry, 2) + pow(k - zcenter, 2) / pow(rz, 2)) < 1)
+                {
+                    this->cutVoxel(i, j, k);
+                }
+            }
+        }
+    }
 }
 
 void Sculptor::writeOFF(char *filename)
@@ -134,8 +197,7 @@ void Sculptor::writeOFF(char *filename)
             }
         }
     }
-    
-    std::cout << "file open" << std::endl;
+
     myFile << "OFF" << std::endl;
     myFile << 8 * vOn << " " << 6 * vOn << " 0" << std::endl;
 

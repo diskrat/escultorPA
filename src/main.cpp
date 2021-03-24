@@ -2,15 +2,29 @@
 #include "sculptor.hpp"
 
 int main() {
-    int tamX,tamY,tamZ;
-    std::cout << "insira tamanho do escultor" << std::endl;
-    std::cin>> tamX >>tamY >>tamZ;
-    Sculptor teste(tamX,tamY,tamZ);
-    teste.setColor(1,1,1,1);
-    teste.putVoxel(0,0,0);
-    std::cout << "escreve em arquivo" << std::endl;
-    teste.writeOFF("teste.off");
-    std::cout << "terminou escrita" << std::endl;
+    /*
+    Sculptor trono(10,10,10);
+    trono.setColor(0,0,1,1);
+    trono.putBox(0,9,0,9,0,9);
+    trono.cutBox(1,8,1,9,1,9);
+    trono.writeOFF("trono.off");
+
+
+    Sculptor e1(31,31,51);
+    e1.setColor(0,1,0,1);
+    e1.putEllipsoid(15,15,15,10,10,15);
+    e1.setColor(0,1,1,0.3);
+    e1.putEllipsoid(15,15,15,9,9,14);
+    e1.cutEllipsoid(15,15,15,8,8,13);
+    e1.cutBox(0,30,0,30,0,5);
+    e1.writeOFF("vaso.off");
+
+    Sculptor e2(31,31,31);
+    e2.setColor(1,1,0,1);
+    e2.putSphere(0,0,0,10);
+    e2.putVoxel(30,30,30);
+    e2.writeOFF("sol.off");
+    */
 
     return 0;
 }
