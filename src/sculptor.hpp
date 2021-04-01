@@ -2,12 +2,16 @@
 #define SCULPTOR_HPP
 #include "voxel.hpp"
 
-class Sculptor {
+/// @brief Class to manipulate the voxels
+/// @param v Voxel 3D matrix
+/// @param nx, ny, nz Matrix dimensions
+/// @param r, g, b, a Current drawing color
+class Sculptor
+{
 protected:
   Voxel ***v;
-  // 3D matrix
-  int nx,ny,nz; // Dimensions
-  float r,g,b,a; // Current drawing color
+  int nx, ny, nz;
+  float r, g, b, a;
 public:
   Sculptor(int _nx, int _ny, int _nz);
   ~Sculptor();
@@ -20,7 +24,7 @@ public:
   void cutSphere(int xcenter, int ycenter, int zcenter, int radius);
   void putEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz);
   void cutEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz);
-  void writeOFF(char* filename);
+  void writeOFF(char *filename);
 };
 
 #endif // SCULPTOR_HPP
