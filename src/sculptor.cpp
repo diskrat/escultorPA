@@ -5,6 +5,11 @@
 #include <fstream>
 #include <cmath>
 
+bool isInsideEllipsoid(int i, int j, int k, int xcenter,int ycenter,int zcenter,int rx,int ry,int rz)
+{
+    return ((pow(i - xcenter, 2) / pow(rx, 2) + pow(j - ycenter, 2) / pow(ry, 2) + pow(k - zcenter, 2) / pow(rz, 2)) < 1);
+};
+
 /// @brief Class constructor.
 ///
 /// Create and allocate space to the voxel matrix and set the color parameters to zero.
@@ -185,7 +190,7 @@ void Sculptor::putEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int r
             for (int k = z0; k < z1; k++)
             {
                 //Conditional statement that executes if the Voxel is inside the ellipsoid
-                if ((pow(i - xcenter, 2) / pow(rx, 2) + pow(j - ycenter, 2) / pow(ry, 2) + pow(k - zcenter, 2) / pow(rz, 2)) < 1)
+                if (isInsideEllipsoid(i,j,k,xcenter,ycenter,zcenter,rx,rx,rz))
                 {
                     this->putVoxel(i, j, k);
                 }
@@ -217,7 +222,7 @@ void Sculptor::cutEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int r
             for (int k = z0; k < z1; k++)
             {
                 //Conditional statement that executes if the Voxel is inside the ellipsoid
-                if ((pow(i - xcenter, 2) / pow(rx, 2) + pow(j - ycenter, 2) / pow(ry, 2) + pow(k - zcenter, 2) / pow(rz, 2)) < 1)
+                if (isInsideEllipsoid(i,j,k,xcenter,ycenter,zcenter,rx,rx,rz))
                 {
                     this->cutVoxel(i, j, k);
                 }
