@@ -97,7 +97,7 @@ void Sculptor::cutVoxel(int x, int y, int z)
 ///@param z1 end of the z interval
 void Sculptor::putBox(int x0, int x1, int y0, int y1, int z0, int z1)
 {
-    //This part avoids geting out of the matrix domain
+    ///This part avoids geting out of the matrix domain
     x0 = (x0 < 0) ? 0 : x0;
     x1 = (x1 > this->nx) ? this->nx : x1;
     y0 = (y0 < 0) ? 0 : y0;
@@ -105,7 +105,7 @@ void Sculptor::putBox(int x0, int x1, int y0, int y1, int z0, int z1)
     z0 = (z0 < 0) ? 0 : z0;
     z1 = (z1 > this->nz) ? this->nz : z1;
 
-    //This part put the voxel in the Box
+    ///This part put the voxel in the Box
     for (int i = x0; i < x1; i++)
     {
         for (int j = y0; j < y1; j++)

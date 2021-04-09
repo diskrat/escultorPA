@@ -12,6 +12,7 @@ protected:
   Voxel ***v;
   int nx, ny, nz;
   float r, g, b, a;
+
 public:
   Sculptor(int _nx, int _ny, int _nz);
   ~Sculptor();
