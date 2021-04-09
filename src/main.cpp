@@ -1,8 +1,9 @@
 #include <iostream>
-#include "sculptor.hpp"
+#include "lerDeArquivo.hpp"
 
 ///@brief create a disk
-int main() {
+int main()
+{
     /*
     Sculptor trono(10,10,10);
     trono.setColor(0,0,1,1);
@@ -31,8 +32,8 @@ int main() {
    disco.setColor(0,1,1,1);
    disco.putEllipsoid(5,1,5,5,1,5);
    disco.writeOFF("disco.off");
-
-
+    
+   lerDeArquivo("teste.txt");
 
     return 0;
 }

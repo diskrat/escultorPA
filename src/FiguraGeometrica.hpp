@@ -8,7 +8,8 @@ protected:
     int x0, y0, z0;
 
 public:
-    virtual void draw(Sculptor &t);
+    virtual ~FiguraGeometrica()=0;
+    virtual void draw(Sculptor &t)=0;
 };
 
 class PutVoxel : public FiguraGeometrica
