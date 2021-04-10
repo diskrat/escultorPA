@@ -8,8 +8,7 @@ protected:
     int x0, y0, z0;
 
 public:
-    virtual ~FiguraGeometrica()=0;
-    virtual void draw(Sculptor &t)=0;
+    virtual void draw(Sculptor &t) = 0;
 };
 
 class PutVoxel : public FiguraGeometrica
@@ -19,7 +18,7 @@ protected:
 
 public:
     PutVoxel(int _x0 = 0, int _y0 = 0, int _z0 = 0, float _r = 0.0, float _g = 0.0, float _b = 0.0, float _a = 1.0);
-    inline ~PutVoxel(){};
+    ~PutVoxel() {}
     void draw(Sculptor &t);
 };
 
@@ -27,7 +26,7 @@ class CutVoxel : public FiguraGeometrica
 {
 public:
     CutVoxel(int _x0 = 0, int _y0 = 0, int _z0 = 0);
-    inline ~CutVoxel(){};
+    ~CutVoxel() {}
     void draw(Sculptor &t);
 };
 
@@ -39,7 +38,7 @@ protected:
 
 public:
     PutBox(int _x0 = 0, int _x1 = 0, int _y0 = 0, int _y1 = 0, int _z0 = 0, int _z1 = 0, float _r = 0.0, float _g = 0.0, float _b = 0.0, float _a = 1.0);
-    inline ~PutBox(){};
+    ~PutBox() {}
     void draw(Sculptor &t);
 };
 
@@ -50,7 +49,7 @@ protected:
 
 public:
     CutBox(int _x0 = 0, int _x1 = 0, int _y0 = 0, int _y1 = 0, int _z0 = 0, int _z1 = 0);
-    inline ~CutBox(){};
+    ~CutBox() {}
     void draw(Sculptor &t);
 };
 
@@ -62,7 +61,7 @@ protected:
 
 public:
     PutSphere(int _x0 = 0, int _y0 = 0, int _z0 = 0, int _radius = 1, float _r = 0.0, float _g = 0.0, float _b = 0.0, float _a = 1.0);
-    inline ~PutSphere() {}
+    ~PutSphere() {}
     void draw(Sculptor &t);
 };
 
@@ -70,31 +69,33 @@ class CutSphere : public FiguraGeometrica
 {
 protected:
     int radius;
+
 public:
     CutSphere(int _x0 = 0, int _y0 = 0, int _z0 = 0, int _radius = 1);
-    inline ~CutSphere() {}
+    ~CutSphere() {}
     void draw(Sculptor &t);
 };
 
 class PutEllipsoid : public FiguraGeometrica
 {
 protected:
-    int rx,ry,rz;
+    int rx, ry, rz;
     float r, g, b, a;
 
 public:
-    PutEllipsoid(int _x0 = 0, int _y0 = 0, int _z0 = 0, int _rx =0, int _ry =0, int _rz =0, float _r = 0.0, float _g = 0.0, float _b = 0.0, float _a = 1.0);
-    inline ~PutEllipsoid() {}
+    PutEllipsoid(int _x0 = 0, int _y0 = 0, int _z0 = 0, int _rx = 0, int _ry = 0, int _rz = 0, float _r = 0.0, float _g = 0.0, float _b = 0.0, float _a = 1.0);
+    ~PutEllipsoid() {}
     void draw(Sculptor &t);
 };
 
 class CutEllipsoid : public FiguraGeometrica
 {
 protected:
-    int rx,ry,rz;
+    int rx, ry, rz;
+
 public:
-    CutEllipsoid(int _x0 = 0, int _y0 = 0, int _z0 = 0, int _rx =0, int _ry =0, int _rz =0);
-    inline ~CutEllipsoid() {}
+    CutEllipsoid(int _x0 = 0, int _y0 = 0, int _z0 = 0, int _rx = 0, int _ry = 0, int _rz = 0);
+    ~CutEllipsoid() {}
     void draw(Sculptor &t);
 };
 

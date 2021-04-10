@@ -112,7 +112,7 @@ PutEllipsoid::PutEllipsoid(int _x0, int _y0, int _z0, int _rx, int _ry, int _rz,
 void PutEllipsoid::draw(Sculptor &t)
 {
     t.setColor(this->r, this->g, this->b, this->a);
-    t.putEllipsoid(this->x0, this->y0, this->z0, this->rx,this->ry,this->rz);
+    t.putEllipsoid(this->x0, this->y0, this->z0, this->rx, this->ry, this->rz);
 }
 
 CutEllipsoid::CutEllipsoid(int _x0, int _y0, int _z0, int _rx, int _ry, int _rz)
@@ -127,5 +127,5 @@ CutEllipsoid::CutEllipsoid(int _x0, int _y0, int _z0, int _rx, int _ry, int _rz)
 
 void CutEllipsoid::draw(Sculptor &t)
 {
-    t.cutEllipsoid(this->x0, this->y0, this->z0, this->rx,this->ry,this->rz);
+    t.cutEllipsoid(this->x0, this->y0, this->z0, this->rx, this->ry, this->rz);
 }
