@@ -4,6 +4,8 @@
 #include <sstream>
 #include <string>
 #include <vector>
+
+///enum class for the switch inside the main function
 enum class figura
 {
     pvoxel,
@@ -15,6 +17,8 @@ enum class figura
     pelli,
     celli
 };
+
+///function that read from string and return a enum type based on what is written
 figura qualFig(std::string _s)
 {
     if (_s == "putvoxel")
@@ -78,8 +82,12 @@ figura qualFig(std::string _s)
 
 lerDeArquivo::lerDeArquivo(const char *fin, char *fout)
 {
+
+    /// base auxiliar variables
     int largura, altura, profundidade, x0, y0, z0, x1, y1, z1, radius, rx, ry, rz;
     float r, g, b, a;
+
+    ///stream management 
     std::fstream fs(fin);
     std::string s;
     std::stringstream ss;
@@ -99,11 +107,13 @@ lerDeArquivo::lerDeArquivo(const char *fin, char *fout)
         std::cout << "arquivo nao comecou com dim" << std::endl;
         exit(1);
     }
-    ///Cria escultor agora
+    ///create a sculptor object
     ss >> largura >> altura >> profundidade;
-    Sculptor la(largura, altura, profundidade);
-    ///cria container e adiciona ao container
+    Sculptor escultura(largura, altura, profundidade);
+    ///create container of pointers to FiguraGeometrica
     std::vector<FiguraGeometrica *> fig;
+
+    ///iterate through file creating the figuraGeometrica derived objects
     while (std::getline(fs, s))
     {
         ss.clear();
@@ -152,12 +162,15 @@ lerDeArquivo::lerDeArquivo(const char *fin, char *fout)
             break;
         }
     }
+
+    ///draw the figures in the sculptor object
     for (auto i : fig)
     {
-        i->draw(la);
+        i->draw(escultura);
     }
-    la.writeOFF(fout);
-    ///detrutores dos ponteiros em fig e do objeto sculptor
+    ///write in the off format
+    escultura.writeOFF(fout);
+    ///deallocate memory 
     for (auto i : fig)
     {
         delete i;
