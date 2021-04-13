@@ -28,12 +28,9 @@ int main()
     e2.writeOFF("sol.off");
     */
 
-   Sculptor disco(20,20,20);
-   disco.setColor(0,1,1,1);
-   disco.putEllipsoid(5,1,5,5,1,5);
-   disco.writeOFF("disco.off");
+   
     
-   lerDeArquivo("teste.txt");
+   lerDeArquivo("teste.txt","resultado.off");
 
     return 0;
 }

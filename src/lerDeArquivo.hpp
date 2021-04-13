@@ -4,7 +4,7 @@
 class lerDeArquivo
 {
 public:
-    lerDeArquivo(const char *filename);
+    lerDeArquivo(const char *filename,char *fout);
     // ~lerDeArquivo();
 };
 

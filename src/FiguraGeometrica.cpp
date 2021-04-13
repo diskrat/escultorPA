@@ -1,5 +1,5 @@
 #include "FiguraGeometrica.hpp"
-
+#include <iostream>
 PutVoxel::PutVoxel(int _x0, int _y0, int _z0, float _r, float _g, float _b, float _a)
 {
     this->x0 = _x0;

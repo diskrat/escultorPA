@@ -73,6 +73,7 @@ void Sculptor::setColor(float r, float g, float b, float alpha)
 ///@brief set the Voxel in the position (x,y,z) as on
 void Sculptor::putVoxel(int x, int y, int z)
 {
+    
     this->v[x][y][z].isOn = true;
     this->v[x][y][z].r = this->r;
     this->v[x][y][z].g = this->g;
@@ -83,6 +84,7 @@ void Sculptor::putVoxel(int x, int y, int z)
 ///@brief set the Voxel in the position (x,y,z) as off
 void Sculptor::cutVoxel(int x, int y, int z)
 {
+    
     this->v[x][y][z].isOn = false;
 }
 
@@ -156,6 +158,7 @@ void Sculptor::cutBox(int x0, int x1, int y0, int y1, int z0, int z1)
 ///@see =putEllipsoid()
 void Sculptor::putSphere(int xcenter, int ycenter, int zcenter, int radius)
 {
+    
     putEllipsoid(xcenter, ycenter, zcenter, radius, radius, radius);
 }
 
@@ -165,7 +168,7 @@ void Sculptor::putSphere(int xcenter, int ycenter, int zcenter, int radius)
 ///@see cutEllipsoid()
 void Sculptor::cutSphere(int xcenter, int ycenter, int zcenter, int radius)
 {
-
+    
     cutEllipsoid(xcenter, ycenter, zcenter, radius, radius, radius);
 }
 
@@ -205,7 +208,6 @@ void Sculptor::putEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int r
 ///@param rx,ry,rz ellipsoid axis
 void Sculptor::cutEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz)
 {
-
     //This part avoids geting out of the matrix domain
     int x0, x1, y0, y1, z0, z1;
     x0 = (xcenter - rx < 0) ? 0 : xcenter - rx;

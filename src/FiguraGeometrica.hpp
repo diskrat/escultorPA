@@ -8,6 +8,7 @@ protected:
     int x0, y0, z0;
 
 public:
+    virtual ~FiguraGeometrica() {};
     virtual void draw(Sculptor &t) = 0;
 };
 

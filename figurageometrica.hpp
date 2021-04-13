@@ -17,7 +17,7 @@ class PutVoxel : public figuraGeometrica
 {
 
 public:
-    PutVoxel(int _x0 =0,int _y0 =0,int _z0 =0, float _r =0.0,float _g=0.0,float _b=0.0,float _a=1.0);
+    PutVoxel(int _x0 ,int _y0 ,int _z0 , float _r,float _g,float _b,float _a);
     ~PutVoxel();
     void draw(Sculptor &t);
 };
