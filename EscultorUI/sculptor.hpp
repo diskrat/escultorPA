@@ -14,7 +14,7 @@ protected:
   float r, g, b, a;
 
 public:
-  Sculptor(int _nx, int _ny, int _nz);
+  Sculptor(int _nx=1, int _ny=1, int _nz=1);
   ~Sculptor();
   void setColor(float r, float g, float b, float alpha);
   void putVoxel(int x, int y, int z);
