@@ -9,21 +9,22 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    dialogadvoxel.cpp \
+    colorrgb.cpp \
     dialognovo.cpp \
     main.cpp \
     mainescultor.cpp \
+    plotter.cpp \
     sculptor.cpp
 
 HEADERS += \
-    dialogaddvoxel.h \
+    colorrgb.h \
     dialognovo.h \
     mainescultor.h \
+    plotter.h \
     sculptor.hpp \
     voxel.hpp
 
 FORMS += \
-    dialogaddvoxel.ui \
     dialognovo.ui \
     mainescultor.ui
 

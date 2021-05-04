@@ -85,9 +85,8 @@ void MainEscultor::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         switch (_id) {
         case 0: _t->quitEscultor(); break;
         case 1: _t->abreDialogNovo(); break;
-        case 2: _t->abreDialogAddVoxel(); break;
-        case 3: _t->DisableButtons(); break;
-        case 4: _t->EnableButtons(); break;
+        case 2: _t->DisableButtons(); break;
+        case 3: _t->EnableButtons(); break;
         default: ;
         }
     }

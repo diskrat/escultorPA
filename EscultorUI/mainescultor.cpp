@@ -2,7 +2,6 @@
 #include "ui_mainescultor.h"
 #include <cstdlib>
 #include "dialognovo.h"
-#include "dialogaddvoxel.h"
 #include <QToolBar>
 #include <QAction>
 MainEscultor::MainEscultor(QWidget *parent)
@@ -47,17 +46,6 @@ void MainEscultor::abreDialogNovo()
 
 }
 
-void MainEscultor::abreDialogAddVoxel()
-{
-    DialogAddVoxel d;
-    if(d.exec() == QDialog::Accepted)
-    {
-        bool ok;
-        fig.setColor(d.valorR(),d.valorG(),d.valorB(),d.valorAlpha());
-        fig.putVoxel(d.getTextX().toInt(&ok),d.getTextY().toInt(&ok),d.getTextZ().toInt(&ok));
-    }
-}
-
 void MainEscultor::DisableButtons()
 {
     ui->actionSalvar->setDisabled(true);
@@ -69,6 +57,15 @@ void MainEscultor::DisableButtons()
     ui->actionCorta_Caixa->setDisabled(true);
     ui->actionCorta_Esfera->setDisabled(true);
     ui->actionCorta_Elipsoide->setDisabled(true);
+    ui->widgetrRGB->setDisabled(true);
+    ui->spinBoxR->setDisabled(true);
+    ui->spinBoxG->setDisabled(true);
+    ui->spinBoxB->setDisabled(true);
+    ui->spinBoxAlpha->setDisabled(true);
+    ui->horizontalSliderR->setDisabled(true);
+    ui->horizontalSliderG->setDisabled(true);
+    ui->horizontalSliderB->setDisabled(true);
+    ui->horizontalSliderAlpha->setDisabled(true);
 }
 
 void MainEscultor::EnableButtons()
@@ -82,5 +79,14 @@ void MainEscultor::EnableButtons()
     ui->actionCorta_Caixa->setEnabled(true);
     ui->actionCorta_Esfera->setEnabled(true);
     ui->actionCorta_Elipsoide->setEnabled(true);
+    ui->widgetrRGB->setEnabled(true);
+    ui->spinBoxR->setEnabled(true);
+    ui->spinBoxG->setEnabled(true);
+    ui->spinBoxB->setEnabled(true);
+    ui->spinBoxAlpha->setEnabled(true);
+    ui->horizontalSliderR->setEnabled(true);
+    ui->horizontalSliderG->setEnabled(true);
+    ui->horizontalSliderB->setEnabled(true);
+    ui->horizontalSliderAlpha->setEnabled(true);
 }
 

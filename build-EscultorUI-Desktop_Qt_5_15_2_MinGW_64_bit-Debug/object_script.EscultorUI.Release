@@ -1,0 +1,10 @@
+release/colorrgb.o
+release/dialogadvoxel.o
+release/dialognovo.o
+release/main.o
+release/mainescultor.o
+release/sculptor.o
+release/moc_colorrgb.o
+release/moc_dialogaddvoxel.o
+release/moc_dialognovo.o
+release/moc_mainescultor.o

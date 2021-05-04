@@ -24,7 +24,7 @@ QT_BEGIN_NAMESPACE
 class Ui_DialogNovo
 {
 public:
-    QWidget *widget;
+    QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout_4;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
@@ -42,23 +42,23 @@ public:
     {
         if (DialogNovo->objectName().isEmpty())
             DialogNovo->setObjectName(QString::fromUtf8("DialogNovo"));
-        DialogNovo->resize(402, 150);
-        widget = new QWidget(DialogNovo);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(20, 20, 361, 101));
-        horizontalLayout_4 = new QHBoxLayout(widget);
+        DialogNovo->resize(252, 150);
+        layoutWidget = new QWidget(DialogNovo);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(20, 20, 211, 101));
+        horizontalLayout_4 = new QHBoxLayout(layoutWidget);
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
         horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        labelTamanhoX = new QLabel(widget);
+        labelTamanhoX = new QLabel(layoutWidget);
         labelTamanhoX->setObjectName(QString::fromUtf8("labelTamanhoX"));
 
         horizontalLayout->addWidget(labelTamanhoX);
 
-        lineEditX = new QLineEdit(widget);
+        lineEditX = new QLineEdit(layoutWidget);
         lineEditX->setObjectName(QString::fromUtf8("lineEditX"));
 
         horizontalLayout->addWidget(lineEditX);
@@ -68,12 +68,12 @@ public:
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        labelTamanhoY = new QLabel(widget);
+        labelTamanhoY = new QLabel(layoutWidget);
         labelTamanhoY->setObjectName(QString::fromUtf8("labelTamanhoY"));
 
         horizontalLayout_2->addWidget(labelTamanhoY);
 
-        lineEditY = new QLineEdit(widget);
+        lineEditY = new QLineEdit(layoutWidget);
         lineEditY->setObjectName(QString::fromUtf8("lineEditY"));
 
         horizontalLayout_2->addWidget(lineEditY);
@@ -83,12 +83,12 @@ public:
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        labelTamanhoZ = new QLabel(widget);
+        labelTamanhoZ = new QLabel(layoutWidget);
         labelTamanhoZ->setObjectName(QString::fromUtf8("labelTamanhoZ"));
 
         horizontalLayout_3->addWidget(labelTamanhoZ);
 
-        lineEditZ = new QLineEdit(widget);
+        lineEditZ = new QLineEdit(layoutWidget);
         lineEditZ->setObjectName(QString::fromUtf8("lineEditZ"));
 
         horizontalLayout_3->addWidget(lineEditZ);
@@ -99,7 +99,7 @@ public:
 
         horizontalLayout_4->addLayout(verticalLayout);
 
-        buttonBox = new QDialogButtonBox(widget);
+        buttonBox = new QDialogButtonBox(layoutWidget);
         buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
         buttonBox->setOrientation(Qt::Vertical);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
