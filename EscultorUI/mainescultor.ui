@@ -45,7 +45,7 @@
    </attribute>
    <addaction name="actionNovo"/>
   </widget>
-  <widget class="QToolBar" name="toolBar_2">
+  <widget class="QToolBar" name="toolBarAdd">
    <property name="windowTitle">
     <string>toolBar_2</string>
    </property>
@@ -60,7 +60,7 @@
    <addaction name="actionAdd_Esfera"/>
    <addaction name="actionAdd_Elipsoide"/>
   </widget>
-  <widget class="QToolBar" name="toolBar_3">
+  <widget class="QToolBar" name="toolBarCorta">
    <property name="windowTitle">
     <string>toolBar_3</string>
    </property>

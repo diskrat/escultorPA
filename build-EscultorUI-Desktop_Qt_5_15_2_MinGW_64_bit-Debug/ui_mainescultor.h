@@ -40,8 +40,8 @@ public:
     QMenu *menuFile;
     QStatusBar *statusbar;
     QToolBar *toolBar;
-    QToolBar *toolBar_2;
-    QToolBar *toolBar_3;
+    QToolBar *toolBarAdd;
+    QToolBar *toolBarCorta;
 
     void setupUi(QMainWindow *MainEscultor)
     {
@@ -85,25 +85,25 @@ public:
         toolBar = new QToolBar(MainEscultor);
         toolBar->setObjectName(QString::fromUtf8("toolBar"));
         MainEscultor->addToolBar(Qt::TopToolBarArea, toolBar);
-        toolBar_2 = new QToolBar(MainEscultor);
-        toolBar_2->setObjectName(QString::fromUtf8("toolBar_2"));
-        MainEscultor->addToolBar(Qt::TopToolBarArea, toolBar_2);
-        toolBar_3 = new QToolBar(MainEscultor);
-        toolBar_3->setObjectName(QString::fromUtf8("toolBar_3"));
-        MainEscultor->addToolBar(Qt::TopToolBarArea, toolBar_3);
+        toolBarAdd = new QToolBar(MainEscultor);
+        toolBarAdd->setObjectName(QString::fromUtf8("toolBarAdd"));
+        MainEscultor->addToolBar(Qt::TopToolBarArea, toolBarAdd);
+        toolBarCorta = new QToolBar(MainEscultor);
+        toolBarCorta->setObjectName(QString::fromUtf8("toolBarCorta"));
+        MainEscultor->addToolBar(Qt::TopToolBarArea, toolBarCorta);
 
         menubar->addAction(menuFile->menuAction());
         menuFile->addAction(actionSalvar);
         menuFile->addAction(actionSair);
         toolBar->addAction(actionNovo);
-        toolBar_2->addAction(actionAdd_Voxel);
-        toolBar_2->addAction(actionAdd_Caixa);
-        toolBar_2->addAction(actionAdd_Esfera);
-        toolBar_2->addAction(actionAdd_Elipsoide);
-        toolBar_3->addAction(actionCorta_Voxel);
-        toolBar_3->addAction(actionCorta_Caixa);
-        toolBar_3->addAction(actionCorta_Esfera);
-        toolBar_3->addAction(actionCorta_Elipsoide);
+        toolBarAdd->addAction(actionAdd_Voxel);
+        toolBarAdd->addAction(actionAdd_Caixa);
+        toolBarAdd->addAction(actionAdd_Esfera);
+        toolBarAdd->addAction(actionAdd_Elipsoide);
+        toolBarCorta->addAction(actionCorta_Voxel);
+        toolBarCorta->addAction(actionCorta_Caixa);
+        toolBarCorta->addAction(actionCorta_Esfera);
+        toolBarCorta->addAction(actionCorta_Elipsoide);
 
         retranslateUi(MainEscultor);
 
@@ -126,8 +126,8 @@ public:
         actionNovo->setText(QCoreApplication::translate("MainEscultor", "Novo", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainEscultor", "File", nullptr));
         toolBar->setWindowTitle(QCoreApplication::translate("MainEscultor", "toolBar", nullptr));
-        toolBar_2->setWindowTitle(QCoreApplication::translate("MainEscultor", "toolBar_2", nullptr));
-        toolBar_3->setWindowTitle(QCoreApplication::translate("MainEscultor", "toolBar_3", nullptr));
+        toolBarAdd->setWindowTitle(QCoreApplication::translate("MainEscultor", "toolBar_2", nullptr));
+        toolBarCorta->setWindowTitle(QCoreApplication::translate("MainEscultor", "toolBar_3", nullptr));
     } // retranslateUi
 
 };

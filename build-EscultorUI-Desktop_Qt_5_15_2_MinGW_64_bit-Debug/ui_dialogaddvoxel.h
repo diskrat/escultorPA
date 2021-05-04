@@ -16,7 +16,10 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QSlider>
+#include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -24,116 +27,55 @@ QT_BEGIN_NAMESPACE
 class Ui_DialogAddVoxel
 {
 public:
-    QDialogButtonBox *buttonBox;
-    QWidget *layoutWidget;
-    QHBoxLayout *horizontalLayout_4;
-    QLabel *LabelSetCorG;
-    QSlider *horizontalSliderSetCorG;
-    QLCDNumber *lcdNumberSetCorG;
-    QWidget *layoutWidget_2;
-    QHBoxLayout *horizontalLayout_5;
-    QLabel *LabelSetCorB;
-    QSlider *horizontalSliderSetCorB;
-    QLCDNumber *lcdNumberSetCorB;
-    QWidget *layoutWidget_3;
-    QHBoxLayout *horizontalLayout_6;
-    QLabel *LabelSetCorAlpha;
-    QSlider *horizontalSliderSetCorAlpha;
-    QLCDNumber *lcdNumberSetCorAlpha;
     QWidget *widget;
+    QHBoxLayout *horizontalLayout_10;
+    QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout;
     QLabel *LabelSetCorR;
     QSlider *horizontalSliderSetCorR;
     QLCDNumber *lcdNumberSetCorR;
+    QHBoxLayout *horizontalLayout_4;
+    QLabel *LabelSetCorG;
+    QSlider *horizontalSliderSetCorG;
+    QLCDNumber *lcdNumberSetCorG;
+    QHBoxLayout *horizontalLayout_5;
+    QLabel *LabelSetCorB;
+    QSlider *horizontalSliderSetCorB;
+    QLCDNumber *lcdNumberSetCorB;
+    QHBoxLayout *horizontalLayout_6;
+    QLabel *LabelSetCorAlpha;
+    QSlider *horizontalSliderSetCorAlpha;
+    QLCDNumber *lcdNumberSetCorAlpha;
+    QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout_7;
+    QLabel *labelPosVoxX;
+    QLineEdit *lineEditPosVoxX;
+    QSpacerItem *horizontalSpacer;
+    QHBoxLayout *horizontalLayout_8;
+    QLabel *labellPosVoxY;
+    QLineEdit *lineEditlPosVoxY;
+    QSpacerItem *horizontalSpacer_2;
+    QHBoxLayout *horizontalLayout_9;
+    QLabel *labellPosVoxZ;
+    QLineEdit *lineEditlPosVoxZ;
+    QSpacerItem *horizontalSpacer_3;
+    QDialogButtonBox *buttonBox;
 
     void setupUi(QDialog *DialogAddVoxel)
     {
         if (DialogAddVoxel->objectName().isEmpty())
             DialogAddVoxel->setObjectName(QString::fromUtf8("DialogAddVoxel"));
         DialogAddVoxel->resize(400, 300);
-        buttonBox = new QDialogButtonBox(DialogAddVoxel);
-        buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
-        buttonBox->setGeometry(QRect(290, 20, 81, 241));
-        buttonBox->setOrientation(Qt::Vertical);
-        buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
-        layoutWidget = new QWidget(DialogAddVoxel);
-        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(30, 50, 241, 25));
-        horizontalLayout_4 = new QHBoxLayout(layoutWidget);
-        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
-        horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
-        LabelSetCorG = new QLabel(layoutWidget);
-        LabelSetCorG->setObjectName(QString::fromUtf8("LabelSetCorG"));
-
-        horizontalLayout_4->addWidget(LabelSetCorG);
-
-        horizontalSliderSetCorG = new QSlider(layoutWidget);
-        horizontalSliderSetCorG->setObjectName(QString::fromUtf8("horizontalSliderSetCorG"));
-        horizontalSliderSetCorG->setMaximum(255);
-        horizontalSliderSetCorG->setOrientation(Qt::Horizontal);
-
-        horizontalLayout_4->addWidget(horizontalSliderSetCorG);
-
-        lcdNumberSetCorG = new QLCDNumber(layoutWidget);
-        lcdNumberSetCorG->setObjectName(QString::fromUtf8("lcdNumberSetCorG"));
-        lcdNumberSetCorG->setSegmentStyle(QLCDNumber::Flat);
-
-        horizontalLayout_4->addWidget(lcdNumberSetCorG);
-
-        layoutWidget_2 = new QWidget(DialogAddVoxel);
-        layoutWidget_2->setObjectName(QString::fromUtf8("layoutWidget_2"));
-        layoutWidget_2->setGeometry(QRect(30, 80, 241, 25));
-        horizontalLayout_5 = new QHBoxLayout(layoutWidget_2);
-        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
-        horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
-        LabelSetCorB = new QLabel(layoutWidget_2);
-        LabelSetCorB->setObjectName(QString::fromUtf8("LabelSetCorB"));
-
-        horizontalLayout_5->addWidget(LabelSetCorB);
-
-        horizontalSliderSetCorB = new QSlider(layoutWidget_2);
-        horizontalSliderSetCorB->setObjectName(QString::fromUtf8("horizontalSliderSetCorB"));
-        horizontalSliderSetCorB->setMaximum(255);
-        horizontalSliderSetCorB->setOrientation(Qt::Horizontal);
-
-        horizontalLayout_5->addWidget(horizontalSliderSetCorB);
-
-        lcdNumberSetCorB = new QLCDNumber(layoutWidget_2);
-        lcdNumberSetCorB->setObjectName(QString::fromUtf8("lcdNumberSetCorB"));
-        lcdNumberSetCorB->setSegmentStyle(QLCDNumber::Flat);
-
-        horizontalLayout_5->addWidget(lcdNumberSetCorB);
-
-        layoutWidget_3 = new QWidget(DialogAddVoxel);
-        layoutWidget_3->setObjectName(QString::fromUtf8("layoutWidget_3"));
-        layoutWidget_3->setGeometry(QRect(30, 110, 241, 25));
-        horizontalLayout_6 = new QHBoxLayout(layoutWidget_3);
-        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
-        horizontalLayout_6->setContentsMargins(0, 0, 0, 0);
-        LabelSetCorAlpha = new QLabel(layoutWidget_3);
-        LabelSetCorAlpha->setObjectName(QString::fromUtf8("LabelSetCorAlpha"));
-
-        horizontalLayout_6->addWidget(LabelSetCorAlpha);
-
-        horizontalSliderSetCorAlpha = new QSlider(layoutWidget_3);
-        horizontalSliderSetCorAlpha->setObjectName(QString::fromUtf8("horizontalSliderSetCorAlpha"));
-        horizontalSliderSetCorAlpha->setMaximum(100);
-        horizontalSliderSetCorAlpha->setOrientation(Qt::Horizontal);
-
-        horizontalLayout_6->addWidget(horizontalSliderSetCorAlpha);
-
-        lcdNumberSetCorAlpha = new QLCDNumber(layoutWidget_3);
-        lcdNumberSetCorAlpha->setObjectName(QString::fromUtf8("lcdNumberSetCorAlpha"));
-        lcdNumberSetCorAlpha->setSegmentStyle(QLCDNumber::Flat);
-
-        horizontalLayout_6->addWidget(lcdNumberSetCorAlpha);
-
         widget = new QWidget(DialogAddVoxel);
         widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(31, 20, 241, 25));
-        horizontalLayout = new QHBoxLayout(widget);
+        widget->setGeometry(QRect(30, 20, 341, 214));
+        horizontalLayout_10 = new QHBoxLayout(widget);
+        horizontalLayout_10->setObjectName(QString::fromUtf8("horizontalLayout_10"));
+        horizontalLayout_10->setContentsMargins(0, 0, 0, 0);
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
         LabelSetCorR = new QLabel(widget);
         LabelSetCorR->setObjectName(QString::fromUtf8("LabelSetCorR"));
 
@@ -153,6 +95,150 @@ public:
         horizontalLayout->addWidget(lcdNumberSetCorR);
 
 
+        verticalLayout_2->addLayout(horizontalLayout);
+
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
+        LabelSetCorG = new QLabel(widget);
+        LabelSetCorG->setObjectName(QString::fromUtf8("LabelSetCorG"));
+
+        horizontalLayout_4->addWidget(LabelSetCorG);
+
+        horizontalSliderSetCorG = new QSlider(widget);
+        horizontalSliderSetCorG->setObjectName(QString::fromUtf8("horizontalSliderSetCorG"));
+        horizontalSliderSetCorG->setMaximum(255);
+        horizontalSliderSetCorG->setOrientation(Qt::Horizontal);
+
+        horizontalLayout_4->addWidget(horizontalSliderSetCorG);
+
+        lcdNumberSetCorG = new QLCDNumber(widget);
+        lcdNumberSetCorG->setObjectName(QString::fromUtf8("lcdNumberSetCorG"));
+        lcdNumberSetCorG->setSegmentStyle(QLCDNumber::Flat);
+
+        horizontalLayout_4->addWidget(lcdNumberSetCorG);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_4);
+
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
+        LabelSetCorB = new QLabel(widget);
+        LabelSetCorB->setObjectName(QString::fromUtf8("LabelSetCorB"));
+
+        horizontalLayout_5->addWidget(LabelSetCorB);
+
+        horizontalSliderSetCorB = new QSlider(widget);
+        horizontalSliderSetCorB->setObjectName(QString::fromUtf8("horizontalSliderSetCorB"));
+        horizontalSliderSetCorB->setMaximum(255);
+        horizontalSliderSetCorB->setOrientation(Qt::Horizontal);
+
+        horizontalLayout_5->addWidget(horizontalSliderSetCorB);
+
+        lcdNumberSetCorB = new QLCDNumber(widget);
+        lcdNumberSetCorB->setObjectName(QString::fromUtf8("lcdNumberSetCorB"));
+        lcdNumberSetCorB->setSegmentStyle(QLCDNumber::Flat);
+
+        horizontalLayout_5->addWidget(lcdNumberSetCorB);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_5);
+
+        horizontalLayout_6 = new QHBoxLayout();
+        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
+        LabelSetCorAlpha = new QLabel(widget);
+        LabelSetCorAlpha->setObjectName(QString::fromUtf8("LabelSetCorAlpha"));
+
+        horizontalLayout_6->addWidget(LabelSetCorAlpha);
+
+        horizontalSliderSetCorAlpha = new QSlider(widget);
+        horizontalSliderSetCorAlpha->setObjectName(QString::fromUtf8("horizontalSliderSetCorAlpha"));
+        horizontalSliderSetCorAlpha->setMaximum(100);
+        horizontalSliderSetCorAlpha->setOrientation(Qt::Horizontal);
+
+        horizontalLayout_6->addWidget(horizontalSliderSetCorAlpha);
+
+        lcdNumberSetCorAlpha = new QLCDNumber(widget);
+        lcdNumberSetCorAlpha->setObjectName(QString::fromUtf8("lcdNumberSetCorAlpha"));
+        lcdNumberSetCorAlpha->setSegmentStyle(QLCDNumber::Flat);
+
+        horizontalLayout_6->addWidget(lcdNumberSetCorAlpha);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_6);
+
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        horizontalLayout_7 = new QHBoxLayout();
+        horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
+        labelPosVoxX = new QLabel(widget);
+        labelPosVoxX->setObjectName(QString::fromUtf8("labelPosVoxX"));
+
+        horizontalLayout_7->addWidget(labelPosVoxX);
+
+        lineEditPosVoxX = new QLineEdit(widget);
+        lineEditPosVoxX->setObjectName(QString::fromUtf8("lineEditPosVoxX"));
+
+        horizontalLayout_7->addWidget(lineEditPosVoxX);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_7->addItem(horizontalSpacer);
+
+
+        verticalLayout->addLayout(horizontalLayout_7);
+
+        horizontalLayout_8 = new QHBoxLayout();
+        horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
+        labellPosVoxY = new QLabel(widget);
+        labellPosVoxY->setObjectName(QString::fromUtf8("labellPosVoxY"));
+
+        horizontalLayout_8->addWidget(labellPosVoxY);
+
+        lineEditlPosVoxY = new QLineEdit(widget);
+        lineEditlPosVoxY->setObjectName(QString::fromUtf8("lineEditlPosVoxY"));
+
+        horizontalLayout_8->addWidget(lineEditlPosVoxY);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_8->addItem(horizontalSpacer_2);
+
+
+        verticalLayout->addLayout(horizontalLayout_8);
+
+        horizontalLayout_9 = new QHBoxLayout();
+        horizontalLayout_9->setObjectName(QString::fromUtf8("horizontalLayout_9"));
+        labellPosVoxZ = new QLabel(widget);
+        labellPosVoxZ->setObjectName(QString::fromUtf8("labellPosVoxZ"));
+
+        horizontalLayout_9->addWidget(labellPosVoxZ);
+
+        lineEditlPosVoxZ = new QLineEdit(widget);
+        lineEditlPosVoxZ->setObjectName(QString::fromUtf8("lineEditlPosVoxZ"));
+
+        horizontalLayout_9->addWidget(lineEditlPosVoxZ);
+
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_9->addItem(horizontalSpacer_3);
+
+
+        verticalLayout->addLayout(horizontalLayout_9);
+
+
+        verticalLayout_2->addLayout(verticalLayout);
+
+
+        horizontalLayout_10->addLayout(verticalLayout_2);
+
+        buttonBox = new QDialogButtonBox(widget);
+        buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
+        buttonBox->setOrientation(Qt::Vertical);
+        buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+
+        horizontalLayout_10->addWidget(buttonBox);
+
+
         retranslateUi(DialogAddVoxel);
         QObject::connect(buttonBox, SIGNAL(accepted()), DialogAddVoxel, SLOT(accept()));
         QObject::connect(buttonBox, SIGNAL(rejected()), DialogAddVoxel, SLOT(reject()));
@@ -167,10 +253,13 @@ public:
     void retranslateUi(QDialog *DialogAddVoxel)
     {
         DialogAddVoxel->setWindowTitle(QCoreApplication::translate("DialogAddVoxel", "Dialog", nullptr));
+        LabelSetCorR->setText(QCoreApplication::translate("DialogAddVoxel", "R:", nullptr));
         LabelSetCorG->setText(QCoreApplication::translate("DialogAddVoxel", "G:", nullptr));
         LabelSetCorB->setText(QCoreApplication::translate("DialogAddVoxel", "B:", nullptr));
         LabelSetCorAlpha->setText(QCoreApplication::translate("DialogAddVoxel", "Alpha:", nullptr));
-        LabelSetCorR->setText(QCoreApplication::translate("DialogAddVoxel", "R:", nullptr));
+        labelPosVoxX->setText(QCoreApplication::translate("DialogAddVoxel", "x:", nullptr));
+        labellPosVoxY->setText(QCoreApplication::translate("DialogAddVoxel", "y:", nullptr));
+        labellPosVoxZ->setText(QCoreApplication::translate("DialogAddVoxel", "z:", nullptr));
     } // retranslateUi
 
 };

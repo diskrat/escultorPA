@@ -2,6 +2,8 @@
 #define DIALOGADDVOXEL_H
 
 #include <QDialog>
+#include <QString>
+#include <QSlider>
 
 namespace Ui {
 class DialogAddVoxel;
@@ -17,6 +19,11 @@ public:
     QString getTextX();
     QString getTextY();
     QString getTextZ();
+    float valorR();
+    float valorG();
+    float valorB();
+    float valorAlpha();
+
 
 private:
     Ui::DialogAddVoxel *ui;

@@ -14,15 +14,32 @@ DialogAddVoxel::~DialogAddVoxel()
 }
 QString DialogAddVoxel::getTextX()
 {
-    return ui->lineEditX->text();
+    return ui->lineEditPosVoxX->text();
 }
 
 QString DialogAddVoxel::getTextY()
 {
-    return ui->lineEditY->text();
+    return ui->lineEditlPosVoxY->text();
 }
 
 QString DialogAddVoxel::getTextZ()
 {
-    return ui->lineEditZ->text();
+    return ui->lineEditlPosVoxZ->text();
+}
+
+float DialogAddVoxel::valorR()
+{
+    return ui->horizontalSliderSetCorR->value()/255.0;
+}
+float DialogAddVoxel::valorG()
+{
+    return ui->horizontalSliderSetCorG->value()/255.0;
+}
+float DialogAddVoxel::valorB()
+{
+    return ui->horizontalSliderSetCorB->value()/255.0;
+}
+float DialogAddVoxel::valorAlpha()
+{
+    return ui->horizontalSliderSetCorAlpha->value()/100.0;
 }

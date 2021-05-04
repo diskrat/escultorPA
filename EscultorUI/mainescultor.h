@@ -20,8 +20,12 @@ public slots:
     void quitEscultor();
     void abreDialogNovo();
     void abreDialogAddVoxel();
+    void DisableButtons();
+    void EnableButtons();
+
 
 private:
     Ui::MainEscultor *ui;
+    ;
 };
 #endif // MAINESCULTOR_H
