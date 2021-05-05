@@ -1,10 +1,10 @@
 debug/colorrgb.o
-debug/dialogadvoxel.o
 debug/dialognovo.o
 debug/main.o
 debug/mainescultor.o
+debug/plotter.o
 debug/sculptor.o
 debug/moc_colorrgb.o
-debug/moc_dialogaddvoxel.o
 debug/moc_dialognovo.o
 debug/moc_mainescultor.o
+debug/moc_plotter.o

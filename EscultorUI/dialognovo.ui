@@ -35,7 +35,11 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEditX"/>
+         <widget class="QSpinBox" name="spinBoxX">
+          <property name="value">
+           <number>10</number>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -49,7 +53,11 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEditY"/>
+         <widget class="QSpinBox" name="spinBoxY">
+          <property name="value">
+           <number>10</number>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -63,7 +71,11 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEditZ"/>
+         <widget class="QSpinBox" name="spinBoxZ">
+          <property name="value">
+           <number>10</number>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>

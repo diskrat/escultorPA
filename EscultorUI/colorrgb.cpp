@@ -1,5 +1,6 @@
 #include "colorrgb.h"
 #include "mainescultor.h"
+#include "plotter.h"
 #include<QPainter>
 #include <QBrush>
 
@@ -19,6 +20,7 @@ void colorRGB::paintEvent(QPaintEvent *event)
     painter.setBrush(brush);
     painter.setOpacity(qreal(alpha/100.0));
     painter.drawRect(0,0,width(),height());
+    //Plotter::fig->setColor(r/255.0,g/255.0,b/255.0,alpha/100.0);
 
 
 }

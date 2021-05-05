@@ -15,9 +15,9 @@ class DialogNovo : public QDialog
 public:
     explicit DialogNovo(QWidget *parent = nullptr);
     ~DialogNovo();
-    QString getTextX();
-    QString getTextY();
-    QString getTextZ();
+    int getX();
+    int getY();
+    int getZ();
 private:
     Ui::DialogNovo *ui;
 };

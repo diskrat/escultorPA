@@ -13,17 +13,18 @@ DialogNovo::~DialogNovo()
     delete ui;
 }
 
-QString DialogNovo::getTextX()
+int DialogNovo::getX()
 {
-    return ui->lineEditX->text();
+    return ui->spinBoxX->value();
 }
 
-QString DialogNovo::getTextY()
+int DialogNovo::getY()
 {
-    return ui->lineEditY->text();
+    return ui->spinBoxY->value();
 }
 
-QString DialogNovo::getTextZ()
+int DialogNovo::getZ()
 {
-    return ui->lineEditZ->text();
+    return ui->spinBoxZ->value();
 }
+

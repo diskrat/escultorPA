@@ -14,12 +14,9 @@ class MainEscultor : public QMainWindow
 public:
     MainEscultor(QWidget *parent = nullptr);
     ~MainEscultor();
-    Sculptor fig;
-
 public slots:
     void quitEscultor();
     void abreDialogNovo();
-    void abreDialogAddVoxel();
     void DisableButtons();
     void EnableButtons();
 

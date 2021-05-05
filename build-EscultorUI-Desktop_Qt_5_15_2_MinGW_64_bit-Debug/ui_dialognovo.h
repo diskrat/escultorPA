@@ -15,7 +15,7 @@
 #include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -29,13 +29,13 @@ public:
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
     QLabel *labelTamanhoX;
-    QLineEdit *lineEditX;
+    QSpinBox *spinBoxX;
     QHBoxLayout *horizontalLayout_2;
     QLabel *labelTamanhoY;
-    QLineEdit *lineEditY;
+    QSpinBox *spinBoxY;
     QHBoxLayout *horizontalLayout_3;
     QLabel *labelTamanhoZ;
-    QLineEdit *lineEditZ;
+    QSpinBox *spinBoxZ;
     QDialogButtonBox *buttonBox;
 
     void setupUi(QDialog *DialogNovo)
@@ -58,10 +58,11 @@ public:
 
         horizontalLayout->addWidget(labelTamanhoX);
 
-        lineEditX = new QLineEdit(layoutWidget);
-        lineEditX->setObjectName(QString::fromUtf8("lineEditX"));
+        spinBoxX = new QSpinBox(layoutWidget);
+        spinBoxX->setObjectName(QString::fromUtf8("spinBoxX"));
+        spinBoxX->setValue(10);
 
-        horizontalLayout->addWidget(lineEditX);
+        horizontalLayout->addWidget(spinBoxX);
 
 
         verticalLayout->addLayout(horizontalLayout);
@@ -73,10 +74,11 @@ public:
 
         horizontalLayout_2->addWidget(labelTamanhoY);
 
-        lineEditY = new QLineEdit(layoutWidget);
-        lineEditY->setObjectName(QString::fromUtf8("lineEditY"));
+        spinBoxY = new QSpinBox(layoutWidget);
+        spinBoxY->setObjectName(QString::fromUtf8("spinBoxY"));
+        spinBoxY->setValue(10);
 
-        horizontalLayout_2->addWidget(lineEditY);
+        horizontalLayout_2->addWidget(spinBoxY);
 
 
         verticalLayout->addLayout(horizontalLayout_2);
@@ -88,10 +90,11 @@ public:
 
         horizontalLayout_3->addWidget(labelTamanhoZ);
 
-        lineEditZ = new QLineEdit(layoutWidget);
-        lineEditZ->setObjectName(QString::fromUtf8("lineEditZ"));
+        spinBoxZ = new QSpinBox(layoutWidget);
+        spinBoxZ->setObjectName(QString::fromUtf8("spinBoxZ"));
+        spinBoxZ->setValue(10);
 
-        horizontalLayout_3->addWidget(lineEditZ);
+        horizontalLayout_3->addWidget(spinBoxZ);
 
 
         verticalLayout->addLayout(horizontalLayout_3);

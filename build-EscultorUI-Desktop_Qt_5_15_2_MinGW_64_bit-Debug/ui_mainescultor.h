@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
@@ -25,6 +26,7 @@
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 #include "colorrgb.h"
+#include "plotter.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -43,8 +45,8 @@ public:
     QAction *actionSalvar;
     QAction *actionNovo;
     QWidget *centralwidget;
-    QWidget *widget;
-    QVBoxLayout *verticalLayout_3;
+    Plotter *widgetDraw;
+    QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayoutR;
@@ -65,9 +67,20 @@ public:
     QSlider *horizontalSliderAlpha;
     QVBoxLayout *verticalLayout_2;
     QSpacerItem *verticalSpacer_2;
-    colorRGB *widgetrRGB;
+    colorRGB *widgetRGB;
     QSpacerItem *verticalSpacer;
-    QWidget *widget1;
+    QSlider *verticalSliderPosZ;
+    QWidget *layoutWidget1;
+    QVBoxLayout *verticalLayout_3;
+    QHBoxLayout *horizontalLayout_4;
+    QLabel *labelMousePosX;
+    QLCDNumber *lcdMousePosX;
+    QHBoxLayout *horizontalLayout_3;
+    QLabel *labelMousePosY;
+    QLCDNumber *lcdMousePosY;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *labelMousePosZ;
+    QLCDNumber *lcdMousePosZ;
     QMenuBar *menubar;
     QMenu *menuFile;
     QStatusBar *statusbar;
@@ -79,7 +92,7 @@ public:
     {
         if (MainEscultor->objectName().isEmpty())
             MainEscultor->setObjectName(QString::fromUtf8("MainEscultor"));
-        MainEscultor->resize(335, 562);
+        MainEscultor->resize(443, 562);
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(10);
         sizePolicy.setVerticalStretch(0);
@@ -109,24 +122,28 @@ public:
         actionNovo->setObjectName(QString::fromUtf8("actionNovo"));
         centralwidget = new QWidget(MainEscultor);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        widget = new QWidget(centralwidget);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(10, 11, 302, 444));
-        verticalLayout_3 = new QVBoxLayout(widget);
-        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
-        verticalLayout_3->setContentsMargins(0, 0, 0, 0);
-        horizontalLayout = new QHBoxLayout();
+        widgetDraw = new Plotter(centralwidget);
+        widgetDraw->setObjectName(QString::fromUtf8("widgetDraw"));
+        widgetDraw->setEnabled(false);
+        widgetDraw->setGeometry(QRect(11, 154, 300, 300));
+        widgetDraw->setMinimumSize(QSize(300, 300));
+        widgetDraw->setBaseSize(QSize(100, 100));
+        layoutWidget = new QWidget(centralwidget);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(30, 0, 226, 136));
+        horizontalLayout = new QHBoxLayout(layoutWidget);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         horizontalLayoutR = new QHBoxLayout();
         horizontalLayoutR->setObjectName(QString::fromUtf8("horizontalLayoutR"));
-        labelR = new QLabel(widget);
+        labelR = new QLabel(layoutWidget);
         labelR->setObjectName(QString::fromUtf8("labelR"));
 
         horizontalLayoutR->addWidget(labelR);
 
-        spinBoxR = new QSpinBox(widget);
+        spinBoxR = new QSpinBox(layoutWidget);
         spinBoxR->setObjectName(QString::fromUtf8("spinBoxR"));
         QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Fixed);
         sizePolicy1.setHorizontalStretch(0);
@@ -139,7 +156,7 @@ public:
 
         horizontalLayoutR->addWidget(spinBoxR);
 
-        horizontalSliderR = new QSlider(widget);
+        horizontalSliderR = new QSlider(layoutWidget);
         horizontalSliderR->setObjectName(QString::fromUtf8("horizontalSliderR"));
         horizontalSliderR->setMaximum(255);
         horizontalSliderR->setValue(255);
@@ -152,12 +169,12 @@ public:
 
         horizontalLayoutG = new QHBoxLayout();
         horizontalLayoutG->setObjectName(QString::fromUtf8("horizontalLayoutG"));
-        labelG = new QLabel(widget);
+        labelG = new QLabel(layoutWidget);
         labelG->setObjectName(QString::fromUtf8("labelG"));
 
         horizontalLayoutG->addWidget(labelG);
 
-        spinBoxG = new QSpinBox(widget);
+        spinBoxG = new QSpinBox(layoutWidget);
         spinBoxG->setObjectName(QString::fromUtf8("spinBoxG"));
         sizePolicy1.setHeightForWidth(spinBoxG->sizePolicy().hasHeightForWidth());
         spinBoxG->setSizePolicy(sizePolicy1);
@@ -167,7 +184,7 @@ public:
 
         horizontalLayoutG->addWidget(spinBoxG);
 
-        horizontalSliderG = new QSlider(widget);
+        horizontalSliderG = new QSlider(layoutWidget);
         horizontalSliderG->setObjectName(QString::fromUtf8("horizontalSliderG"));
         horizontalSliderG->setMaximum(255);
         horizontalSliderG->setValue(255);
@@ -180,12 +197,12 @@ public:
 
         horizontalLayoutB = new QHBoxLayout();
         horizontalLayoutB->setObjectName(QString::fromUtf8("horizontalLayoutB"));
-        labelB = new QLabel(widget);
+        labelB = new QLabel(layoutWidget);
         labelB->setObjectName(QString::fromUtf8("labelB"));
 
         horizontalLayoutB->addWidget(labelB);
 
-        spinBoxB = new QSpinBox(widget);
+        spinBoxB = new QSpinBox(layoutWidget);
         spinBoxB->setObjectName(QString::fromUtf8("spinBoxB"));
         sizePolicy1.setHeightForWidth(spinBoxB->sizePolicy().hasHeightForWidth());
         spinBoxB->setSizePolicy(sizePolicy1);
@@ -195,7 +212,7 @@ public:
 
         horizontalLayoutB->addWidget(spinBoxB);
 
-        horizontalSliderB = new QSlider(widget);
+        horizontalSliderB = new QSlider(layoutWidget);
         horizontalSliderB->setObjectName(QString::fromUtf8("horizontalSliderB"));
         horizontalSliderB->setMaximum(255);
         horizontalSliderB->setValue(255);
@@ -208,12 +225,12 @@ public:
 
         horizontalLayoutAlpha = new QHBoxLayout();
         horizontalLayoutAlpha->setObjectName(QString::fromUtf8("horizontalLayoutAlpha"));
-        labelAlpha = new QLabel(widget);
+        labelAlpha = new QLabel(layoutWidget);
         labelAlpha->setObjectName(QString::fromUtf8("labelAlpha"));
 
         horizontalLayoutAlpha->addWidget(labelAlpha);
 
-        spinBoxAlpha = new QSpinBox(widget);
+        spinBoxAlpha = new QSpinBox(layoutWidget);
         spinBoxAlpha->setObjectName(QString::fromUtf8("spinBoxAlpha"));
         sizePolicy1.setHeightForWidth(spinBoxAlpha->sizePolicy().hasHeightForWidth());
         spinBoxAlpha->setSizePolicy(sizePolicy1);
@@ -223,7 +240,7 @@ public:
 
         horizontalLayoutAlpha->addWidget(spinBoxAlpha);
 
-        horizontalSliderAlpha = new QSlider(widget);
+        horizontalSliderAlpha = new QSlider(layoutWidget);
         horizontalSliderAlpha->setObjectName(QString::fromUtf8("horizontalSliderAlpha"));
         horizontalSliderAlpha->setMaximum(100);
         horizontalSliderAlpha->setValue(100);
@@ -243,11 +260,11 @@ public:
 
         verticalLayout_2->addItem(verticalSpacer_2);
 
-        widgetrRGB = new colorRGB(widget);
-        widgetrRGB->setObjectName(QString::fromUtf8("widgetrRGB"));
-        widgetrRGB->setMinimumSize(QSize(40, 40));
+        widgetRGB = new colorRGB(layoutWidget);
+        widgetRGB->setObjectName(QString::fromUtf8("widgetRGB"));
+        widgetRGB->setMinimumSize(QSize(40, 40));
 
-        verticalLayout_2->addWidget(widgetrRGB);
+        verticalLayout_2->addWidget(widgetRGB);
 
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -256,20 +273,65 @@ public:
 
         horizontalLayout->addLayout(verticalLayout_2);
 
+        verticalSliderPosZ = new QSlider(centralwidget);
+        verticalSliderPosZ->setObjectName(QString::fromUtf8("verticalSliderPosZ"));
+        verticalSliderPosZ->setGeometry(QRect(330, 240, 16, 160));
+        verticalSliderPosZ->setOrientation(Qt::Vertical);
+        layoutWidget1 = new QWidget(centralwidget);
+        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(310, 20, 84, 89));
+        verticalLayout_3 = new QVBoxLayout(layoutWidget1);
+        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
+        verticalLayout_3->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
+        labelMousePosX = new QLabel(layoutWidget1);
+        labelMousePosX->setObjectName(QString::fromUtf8("labelMousePosX"));
 
-        verticalLayout_3->addLayout(horizontalLayout);
+        horizontalLayout_4->addWidget(labelMousePosX);
 
-        widget1 = new QWidget(widget);
-        widget1->setObjectName(QString::fromUtf8("widget1"));
-        widget1->setMinimumSize(QSize(300, 300));
-        widget1->setBaseSize(QSize(100, 100));
+        lcdMousePosX = new QLCDNumber(layoutWidget1);
+        lcdMousePosX->setObjectName(QString::fromUtf8("lcdMousePosX"));
 
-        verticalLayout_3->addWidget(widget1);
+        horizontalLayout_4->addWidget(lcdMousePosX);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_4);
+
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
+        labelMousePosY = new QLabel(layoutWidget1);
+        labelMousePosY->setObjectName(QString::fromUtf8("labelMousePosY"));
+
+        horizontalLayout_3->addWidget(labelMousePosY);
+
+        lcdMousePosY = new QLCDNumber(layoutWidget1);
+        lcdMousePosY->setObjectName(QString::fromUtf8("lcdMousePosY"));
+
+        horizontalLayout_3->addWidget(lcdMousePosY);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_3);
+
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        labelMousePosZ = new QLabel(layoutWidget1);
+        labelMousePosZ->setObjectName(QString::fromUtf8("labelMousePosZ"));
+
+        horizontalLayout_2->addWidget(labelMousePosZ);
+
+        lcdMousePosZ = new QLCDNumber(layoutWidget1);
+        lcdMousePosZ->setObjectName(QString::fromUtf8("lcdMousePosZ"));
+
+        horizontalLayout_2->addWidget(lcdMousePosZ);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_2);
 
         MainEscultor->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainEscultor);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 335, 20));
+        menubar->setGeometry(QRect(0, 0, 443, 20));
         menuFile = new QMenu(menubar);
         menuFile->setObjectName(QString::fromUtf8("menuFile"));
         MainEscultor->setMenuBar(menubar);
@@ -285,6 +347,7 @@ public:
         toolBarCorta = new QToolBar(MainEscultor);
         toolBarCorta->setObjectName(QString::fromUtf8("toolBarCorta"));
         MainEscultor->addToolBar(Qt::TopToolBarArea, toolBarCorta);
+        MainEscultor->insertToolBarBreak(toolBarCorta);
 
         menubar->addAction(menuFile->menuAction());
         menuFile->addAction(actionSalvar);
@@ -308,10 +371,13 @@ public:
         QObject::connect(horizontalSliderB, SIGNAL(valueChanged(int)), spinBoxB, SLOT(setValue(int)));
         QObject::connect(spinBoxAlpha, SIGNAL(valueChanged(int)), horizontalSliderAlpha, SLOT(setValue(int)));
         QObject::connect(horizontalSliderAlpha, SIGNAL(valueChanged(int)), spinBoxAlpha, SLOT(setValue(int)));
-        QObject::connect(horizontalSliderR, SIGNAL(valueChanged(int)), widgetrRGB, SLOT(setR(int)));
-        QObject::connect(horizontalSliderG, SIGNAL(valueChanged(int)), widgetrRGB, SLOT(setG(int)));
-        QObject::connect(horizontalSliderB, SIGNAL(valueChanged(int)), widgetrRGB, SLOT(setB(int)));
-        QObject::connect(horizontalSliderAlpha, SIGNAL(valueChanged(int)), widgetrRGB, SLOT(setAlpha(int)));
+        QObject::connect(horizontalSliderR, SIGNAL(valueChanged(int)), widgetRGB, SLOT(setR(int)));
+        QObject::connect(horizontalSliderG, SIGNAL(valueChanged(int)), widgetRGB, SLOT(setG(int)));
+        QObject::connect(horizontalSliderB, SIGNAL(valueChanged(int)), widgetRGB, SLOT(setB(int)));
+        QObject::connect(horizontalSliderAlpha, SIGNAL(valueChanged(int)), widgetRGB, SLOT(setAlpha(int)));
+        QObject::connect(verticalSliderPosZ, SIGNAL(valueChanged(int)), lcdMousePosZ, SLOT(display(int)));
+        QObject::connect(widgetDraw, SIGNAL(signalMousePosX(int)), lcdMousePosX, SLOT(display(int)));
+        QObject::connect(widgetDraw, SIGNAL(signalMousePosY(int)), lcdMousePosY, SLOT(display(int)));
 
         QMetaObject::connectSlotsByName(MainEscultor);
     } // setupUi
@@ -334,6 +400,9 @@ public:
         labelG->setText(QCoreApplication::translate("MainEscultor", "G:", nullptr));
         labelB->setText(QCoreApplication::translate("MainEscultor", "B:", nullptr));
         labelAlpha->setText(QCoreApplication::translate("MainEscultor", "Alpha:", nullptr));
+        labelMousePosX->setText(QCoreApplication::translate("MainEscultor", "X:", nullptr));
+        labelMousePosY->setText(QCoreApplication::translate("MainEscultor", "Y:", nullptr));
+        labelMousePosZ->setText(QCoreApplication::translate("MainEscultor", "Z:", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainEscultor", "File", nullptr));
         toolBar->setWindowTitle(QCoreApplication::translate("MainEscultor", "toolBar", nullptr));
         toolBarAdd->setWindowTitle(QCoreApplication::translate("MainEscultor", "toolBar_2", nullptr));

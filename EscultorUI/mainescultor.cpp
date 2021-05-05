@@ -4,6 +4,7 @@
 #include "dialognovo.h"
 #include <QToolBar>
 #include <QAction>
+#include <QDebug>
 MainEscultor::MainEscultor(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainEscultor)
@@ -18,10 +19,6 @@ MainEscultor::MainEscultor(QWidget *parent)
             SIGNAL(triggered(bool)),
             this,
             SLOT(abreDialogNovo()));
-    connect(ui->actionAdd_Voxel,
-            SIGNAL(triggered(bool)),
-            this,
-            SLOT(abreDialogAddVoxel()));
 }
 
 MainEscultor::~MainEscultor()
@@ -39,12 +36,16 @@ void MainEscultor::abreDialogNovo()
     DialogNovo d;
     if(d.exec() == QDialog::Accepted)
     {
-        bool ok;
-        Sculptor fig(d.getTextX().toInt(&ok),d.getTextY().toInt(&ok),d.getTextZ().toInt(&ok));
         EnableButtons();
+        ui->widgetDraw->setSizeX(d.getX());
+        ui->widgetDraw->setSizeY(d.getY());
+        ui->widgetDraw->setSizeZ(d.getZ());
+        ui->verticalSliderPosZ->setMaximum(d.getZ()-1);
     }
 
+
 }
+
 
 void MainEscultor::DisableButtons()
 {
@@ -57,7 +58,7 @@ void MainEscultor::DisableButtons()
     ui->actionCorta_Caixa->setDisabled(true);
     ui->actionCorta_Esfera->setDisabled(true);
     ui->actionCorta_Elipsoide->setDisabled(true);
-    ui->widgetrRGB->setDisabled(true);
+    ui->widgetRGB->setDisabled(true);
     ui->spinBoxR->setDisabled(true);
     ui->spinBoxG->setDisabled(true);
     ui->spinBoxB->setDisabled(true);
@@ -66,6 +67,8 @@ void MainEscultor::DisableButtons()
     ui->horizontalSliderG->setDisabled(true);
     ui->horizontalSliderB->setDisabled(true);
     ui->horizontalSliderAlpha->setDisabled(true);
+    ui->widgetDraw->setDisabled(true);
+    ui->verticalSliderPosZ->setDisabled(true);
 }
 
 void MainEscultor::EnableButtons()
@@ -79,7 +82,7 @@ void MainEscultor::EnableButtons()
     ui->actionCorta_Caixa->setEnabled(true);
     ui->actionCorta_Esfera->setEnabled(true);
     ui->actionCorta_Elipsoide->setEnabled(true);
-    ui->widgetrRGB->setEnabled(true);
+    ui->widgetRGB->setEnabled(true);
     ui->spinBoxR->setEnabled(true);
     ui->spinBoxG->setEnabled(true);
     ui->spinBoxB->setEnabled(true);
@@ -88,5 +91,7 @@ void MainEscultor::EnableButtons()
     ui->horizontalSliderG->setEnabled(true);
     ui->horizontalSliderB->setEnabled(true);
     ui->horizontalSliderAlpha->setEnabled(true);
+    ui->widgetDraw->setEnabled(true);
+    ui->verticalSliderPosZ->setEnabled(true);
 }
 
